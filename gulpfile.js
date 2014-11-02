@@ -28,7 +28,7 @@ gulp.task('sass', function() {
 });
 
 gulp.task('src', function() {
-  return gulp.src(['./src/source-header.js'].concat(JS_FILES))
+  return gulp.src(JS_FILES)
     .pipe(concat('all.js'))
     .pipe(gulp.dest('dist'))
     .pipe(connect.reload());

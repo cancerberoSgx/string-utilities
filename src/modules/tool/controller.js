@@ -6,6 +6,10 @@ function($scope, $routeParams, $http)
 {
 	var toolId = $routeParams.toolId;
 	$scope.toolId = toolId; 
+	$scope.optionsChanged = function($event)
+	{
+		console.log($scope.optionsString); 
+	}; 
 	$scope.execTool = function()
 	{
 		var Tool = APP.tools[toolId];
@@ -31,8 +35,6 @@ function($scope, $routeParams, $http)
 			{
 				var ToolClass = eval(data);
 				APP.tools[toolId] = ToolClass; 
-				// APP.execTool(APP.tools[toolId],'', {}); 
-				// debugger;
 			}
 			catch(ex)
 			{
@@ -40,10 +42,6 @@ function($scope, $routeParams, $http)
 			}
 		}); 
 	}
-	// else
-	// {
-	// 	APP.execTool(APP.tools[toolId], '', {}); 
-	// }
 }
 
 ]);

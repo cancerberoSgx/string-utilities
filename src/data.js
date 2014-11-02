@@ -1,4 +1,4 @@
-; 
+
 APP = (typeof(APP) === 'undefined') ? {} : APP;
 
 APP.getAppCategoriesData = function()
@@ -33,9 +33,3 @@ APP.getAppCategoriesData = function()
 	}
 	return APP.appCategoriesData; 
 }; 
-
-// APP.execTool = function(Tool, input, opts)
-// {
-// 	var t = new Tool(); 
-// 	var result = t.exec(input, opts); 
-// }; 

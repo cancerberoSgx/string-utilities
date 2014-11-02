@@ -1,11 +1,12 @@
-
-
-<span class="categories-detail-id">{{toolId}}</span> Tool
+<h4><span class="categories-detail-id">{{toolId}}</span> Tool</h4>
 
 <p>Input: </p>
-<textarea ng-model="input"></textarea>
+<textarea ng-model="input" class="tool-input-area"></textarea>
+
+<p>Options: </p>
+<textarea ng-model="optionsString" ng-change="optionsChanged($event)" class="tool-options-area"></textarea>
 
 <p>Output: </p>
-<textarea>{{execTool()}}</textarea>
+<textarea class="tool-output-area">{{execTool()}}</textarea>
 
 <!-- <button ng-click="someAction1(item, $event)">Send AJAX Request</button> -->
