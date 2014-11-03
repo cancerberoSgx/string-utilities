@@ -5,46 +5,51 @@ controllers.controller('ToolCtrl', ['$scope', '$routeParams', '$http',
 function($scope, $routeParams, $http) 
 {
 	var toolId = $routeParams.toolId;
-	$scope.toolId = toolId; 
-	$scope.optionsChanged = function($event)
-	{
-		console.log($scope.optionsString); 
-	}; 
+
+	var tool = APP.getToolById(toolId);
+	
+	$scope.tool = tool;
+	$scope.input = tool.exampleInput || '';
+	$scope.options = JSON.stringify(tool.options); 
+
+	toolId = tool.toolId || toolId; 
+
 	$scope.execTool = function()
 	{
-		var Tool = APP.tools[toolId];
-		if(!Tool)
-		{
-			return undefined; //may be it is not loaded yet
-		}
-		var t = new Tool();
-		var opts = {};//JSON.parse($scope.options)||{};
-		var result = t.exec($scope.input, opts); 
-		return result;// $scope.input + 'asdasd'
+		return execTool(toolId, $scope);
 	}; 
 
 	var tool_js_path = 'src/tools/' + toolId + '.js'; 
 
-	APP.tools = APP.tools || {}; 
-
-	if(!APP.tools[toolId])
+	if(tool.dependencies && tool.dependencies.length)
 	{
-		$http.get(tool_js_path).success(function(data, status, headers, config) 
+		//TODO: all dependencies
+		jQuery.getScript(tool.dependencies[0]).done(function()
 		{
-			try 
-			{
-				var ToolClass = eval(data);
-				APP.tools[toolId] = ToolClass; 
-			}
-			catch(ex)
-			{
-				throw ex; 
-			}
-		}); 
+			$scope.$apply() ;
+		});
 	}
 }
 
 ]);
 
+
+var execTool = function(toolId, $scope)
+{
+	var Tool = APP.getTool(toolId);
+	var t = new Tool();
+	var opts = '{}'; 
+	try
+	{
+		opts = JSON.parse($scope.options)||{};
+	}
+	catch(ex)
+	{
+		throw ex;
+		//TODO
+	}
+	var result = t.exec($scope.input, opts); 
+	return result;
+}; 
 
 

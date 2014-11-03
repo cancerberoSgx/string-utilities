@@ -14,18 +14,3 @@ app.config(['$routeProvider',
       });
   }]);
 
-
-
-// var Application = function(){}; 
-// _(Application.prototype).extend({
-	
-// }); 
-
-// angular.getApplication = function()
-// {
-// 	if(!this.application)
-// 	{
-// 		this.application = new Application();
-// 	}
-// 	return this.application; 
-// }

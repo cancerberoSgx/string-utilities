@@ -5,4 +5,4 @@ _(Class.prototype).extend({
 		return _.escape(input);
 	}
 }); 
-Class;
+APP.registerTool('htmlEscape', Class); 

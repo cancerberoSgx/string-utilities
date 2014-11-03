@@ -14,7 +14,7 @@ var SCSS_FILES = './src/**/*.scss';
 // var DATA_FILES = './data/*.json'; 
 
 gulp.task('lint', function() {
-    return gulp.src(JS_FILES)
+    return gulp.src([JS_FILES].concat(['!src/tools/lib/**/*']))
       .pipe(jshint())
       .pipe(jshint.reporter('default'));
 });

@@ -1,10 +1,12 @@
-<h4><span class="categories-detail-id">{{toolId}}</span> Tool</h4>
+<h4><span class="categories-detail-id">{{tool.name}}</span> Tool</h4>
+
+<div>{{tool.description}}</div>
 
 <p>Input: </p>
 <textarea ng-model="input" class="tool-input-area"></textarea>
 
 <p>Options: </p>
-<textarea ng-model="optionsString" ng-change="optionsChanged($event)" class="tool-options-area"></textarea>
+<textarea ng-model="options" ng-change="optionsChanged()" class="tool-options-area"></textarea>
 
 <p>Output: </p>
 <textarea class="tool-output-area">{{execTool()}}</textarea>

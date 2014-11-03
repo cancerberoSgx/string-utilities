@@ -1,6 +1,34 @@
 
 APP = (typeof(APP) === 'undefined') ? {} : APP;
 
+APP.getToolById = function(toolId)
+{
+	var tool = null;
+
+	var categories = APP.getAppCategoriesData();
+
+	_(categories).each(function(cat)
+	{
+		_(cat.tools).each(function(t)
+		{
+			tool = tool || (toolId===t.id ? t : null);
+		}); 
+	}); 
+
+	return tool;
+}; 
+
+APP.tools = APP.tools || {}; 
+
+APP.registerTool = function(id, Class)
+{
+	APP.tools[id] = Class;
+}; 
+APP.getTool = function(id)
+{
+	return APP.tools[id]; 
+};
+
 APP.getAppCategoriesData = function()
 {
 	if(typeof(APP.appCategoriesData)==='undefined')
@@ -18,15 +46,92 @@ APP.getAppCategoriesData = function()
 				,	name: "escape"
 				,	description: "will apply html escape() function"
 				,	exampleInput: '<p>hello</p>'
+				,	options: '{}'
 				}
 			,	{		
 					id: "htmlMinify"
 				,	name: "minify"
+				,	description: "simple HTML minification using regexp"
+				,	exampleInput: '<p>hello</p>  <b>Hello\n\n</b>\n\t\n\t\t<span>seb</span>'
+				,	options: '{}'
 				} 
 			]
 		}
+
+
 		, 
-		{id: "45623423", name:"cavani"}
+		{
+			id: "string"
+		,	name:"String misc"
+		,	description: "miscelaneus string operations based on stringjs.com"
+		,	tools: [
+				{
+					id: "stringLatinise"
+				,	name: "latinise"
+				,	toolId: 'string'
+				,	description: "Removes accents from Latin characters"
+				,	exampleInput: 'crème brûlée'
+				,	options: {cmd:'latinise'}
+				,	dependencies: ['lib/string/string.min.js']
+				}
+			,	{
+					id: "camelize"
+				,	name: "camelize"
+				,	toolId: 'string'
+				,	description: "Remove any underscores or dashes and convert a string into camel casing."
+				,	exampleInput: 'data_rate sigmun_froid'
+				,	options: {cmd:'camelize'}
+				,	dependencies: ['lib/string/string.min.js']
+				}
+			,	{
+					id: "capitalize"
+				,	name: "capitalize"
+				,	toolId: 'string'
+				,	description: "Capitalizes the first character of a string."
+				,	exampleInput: 'hello world'
+				,	options: {cmd:'capitalize', multipleWords: true} 
+				,	dependencies: ['lib/string/string.min.js']
+				}
+			,	{
+					id: "collapseWhitespace"
+				,	name: "collapseWhitespace"
+				,	toolId: 'string'
+				,	description: "Converts all adjacent whitespace characters to a single space."
+				,	exampleInput: '  String   \t libraries are   \n\n\t fun\n!  '
+				,	options: {cmd:'collapseWhitespace'} 
+				,	dependencies: ['lib/string/string.min.js']
+				}
+
+			,	{
+					id: "dasherize"
+				,	name: "dasherize"
+				,	toolId: 'string'
+				,	description: "Returns a converted camel cased string into a string delimited by dashes."
+				,	exampleInput: 'dataRate DatePing backgroundColor borderRadious'
+				,	options: {cmd:'dasherize', multipleWords: true} 
+				,	dependencies: ['lib/string/string.min.js']
+				}
+				
+			]
+		}
+
+
+		, 
+		{
+			id: "crypto"
+		,	name:"Encryption"		
+		,	description: "encryption tools using http://code.google.com/p/crypto-js/"
+		,	tools: [
+				{
+					id: "cryptoMD5"
+				,	name: "MD5"
+				,	description: "MD5"
+				,	exampleInput: 'Message'
+				,	options: '{}'
+				,	dependencies: ['lib/crypto-js/md5.js']
+				}
+			]
+			}
 		]; 
 		
 		APP.appCategoriesData = data; 

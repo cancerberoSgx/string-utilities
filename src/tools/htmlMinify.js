@@ -11,4 +11,4 @@ _(Class.prototype).extend({
 			.replace(/\s+/g, ' ');
 	}
 }); 
-Class;
+APP.registerTool('htmlMinify', Class); 
