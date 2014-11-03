@@ -75,7 +75,7 @@ APP.getAppCategoriesData = function()
 				,	dependencies: ['lib/string/string.min.js']
 				}
 			,	{
-					id: "camelize"
+					id: "stringCamelize"
 				,	name: "camelize"
 				,	toolId: 'string'
 				,	description: "Remove any underscores or dashes and convert a string into camel casing."
@@ -84,7 +84,7 @@ APP.getAppCategoriesData = function()
 				,	dependencies: ['lib/string/string.min.js']
 				}
 			,	{
-					id: "capitalize"
+					id: "stringCapitalize"
 				,	name: "capitalize"
 				,	toolId: 'string'
 				,	description: "Capitalizes the first character of a string."
@@ -93,7 +93,7 @@ APP.getAppCategoriesData = function()
 				,	dependencies: ['lib/string/string.min.js']
 				}
 			,	{
-					id: "collapseWhitespace"
+					id: "stringCollapseWhitespace"
 				,	name: "collapseWhitespace"
 				,	toolId: 'string'
 				,	description: "Converts all adjacent whitespace characters to a single space."
@@ -101,14 +101,32 @@ APP.getAppCategoriesData = function()
 				,	options: {cmd:'collapseWhitespace'} 
 				,	dependencies: ['lib/string/string.min.js']
 				}
-
 			,	{
-					id: "dasherize"
+					id: "stringDasherize"
 				,	name: "dasherize"
 				,	toolId: 'string'
 				,	description: "Returns a converted camel cased string into a string delimited by dashes."
 				,	exampleInput: 'dataRate DatePing backgroundColor borderRadious'
 				,	options: {cmd:'dasherize', multipleWords: true} 
+				,	dependencies: ['lib/string/string.min.js']
+				}
+			,	{
+					id: "stringHumanize"
+				,	name: "humanize"
+				,	toolId: 'string'
+				,	description: "Transforms the input into a human friendly form."
+				,	exampleInput: 'the_humanize_string_method ThehumanizeStringMethod'
+				,	options: {cmd:'humanize', multipleWords: true} 
+				,	dependencies: ['lib/string/string.min.js']
+				}
+
+			,	{
+					id: "stringParseCSV"
+				,	name: "parseCSV"
+				,	toolId: 'string'
+				,	description: "Parses a CSV line into an array."
+				,	exampleInput: '"a\na","b","c"\n"a", """b\nb", "a"'
+				,	options: {cmd:'humanize', args: [',', '"', '\\', '\n']}
 				,	dependencies: ['lib/string/string.min.js']
 				}
 				

@@ -15,8 +15,11 @@ _(Class.prototype).extend({
 			}); 
 		}
 		else
-		{			
-			result = S(input)[opts.cmd]().s;
+		{
+			var args = opts.args || []; 
+			var context = S(input);
+			var fn = context[opts.cmd];
+			result = fn.apply(context, args).s;
 		}
 
 		return result;
