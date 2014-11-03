@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en" ng-app="stringUtilitiesApp">
+<head>
+  
+<script src="lib/crypto-js/aes.js"></script><!-- 
+<script src="lib/crypto-js/mode-cfb.js"></script>
+<script src="lib/crypto-js/pad-ansix923.js"></script>
+ -->
+
+</head>
+<body>
+
+
+
+<script>
+
+
+    var encrypted = CryptoJS.AES.encrypt("Message", "mySe4ret").toString();
+
+    function hex2a(hexx) {
+	    var hex = hexx.toString();//force conversion
+	    var str = '';
+	    for (var i = 0; i < hex.length; i += 2)
+	        str += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
+	    return str;
+	}
+	// var encryptedStr = encrypted.toString()
+    var decryptedObj = CryptoJS.AES.decrypt(encrypted, "mySe4ret");
+    var decrypted = hex2a(decryptedObj.toString())
+    console.log('encrypted', encrypted)
+    console.log('decrypted', decrypted);  	
+    // debugger; 
+
+    // var encrypted = CryptoJS.AES.encrypt(
+    // 	"Message", "Secret Passphrase", 
+    // 	{ mode: CryptoJS.mode.CFB, padding: CryptoJS.pad.AnsiX923 }
+    // );
+
+    // var decr = CryptoJS.AES.decrypt(
+    // 	encrypted.toString(), "Secret Passphrase", 
+    // 	{ mode: CryptoJS.mode.CFB, padding: CryptoJS.pad.AnsiX923 }
+    // )
+    // debugger;
+</script>
+
+
+<script>
+
+// var C = CryptoJS;
+// var result = C.lib.PasswordBasedCipher.encrypt(C.algo.AES, 'Hi There', 'Jefe', { mode: C.mode.ECB, padding: C.pad.NoPadding }).toString(); 
+// console.log(result); 
+</script>
+
+
+</body>
+</html>

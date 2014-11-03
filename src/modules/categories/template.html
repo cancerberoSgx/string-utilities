@@ -9,19 +9,19 @@
         <option value="name">Alphabetical</option>
         <option value="age">Newest</option>
       </select> -->
-
     </div>
+
     <div class="col-md-10">
       <!--Body content-->
 
+      <!-- list all categories but filter tools by query -->
       <ul class="categories">
-        <li ng-repeat="category in categories | filter:query | orderBy:orderProp" class="category">
+        <li ng-repeat="category in categories" class="category">
           <h5>{{category.name}}</h5>
-          <!-- <a href="#/categories/{{category.id}}">{{category.name}}</a> -->
           <p>{{category.description}}</p>
 
            <ul class="category-tools">
-            <li ng-repeat="tool in category.tools" class="category-tool">
+            <li ng-repeat="tool in category.tools | filter:query" class="category-tool">
               <a href="#/tool/{{tool.id}}">{{tool.name}}</a>
               <p>{{tool.description}}</p>
             </li>
@@ -29,6 +29,7 @@
 
         </li>
       </ul>
+
 
     </div>
   </div>

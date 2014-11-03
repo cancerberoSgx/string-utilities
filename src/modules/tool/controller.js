@@ -11,6 +11,7 @@ function($scope, $routeParams, $http)
 	$scope.tool = tool;
 	$scope.input = tool.exampleInput || '';
 	$scope.options = JSON.stringify(tool.options); 
+	$scope.longDescription = tool.longDescription || tool.description || ''; 
 
 	toolId = tool.toolId || toolId; 
 
@@ -38,17 +39,23 @@ var execTool = function(toolId, $scope)
 {
 	var Tool = APP.getTool(toolId);
 	var t = new Tool();
-	var opts = '{}'; 
+	var opts = {}; 
 	try
 	{
-		opts = JSON.parse($scope.options)||{};
+		// opts = JSON.parse($scope.options)||{};
+		opts = eval('(' + $scope.options + ')') || {}; 
 	}
 	catch(ex)
 	{
-		throw ex;
-		//TODO
+		//ignore exception since the user may be writing
+		// throw ex;//TODO
+		opts = {};
 	}
 	var result = t.exec($scope.input, opts); 
+	// if(_(result).isObject())
+	// {
+	// 	result = JSON.stringify(result);
+	// }
 	return result;
 }; 
 
