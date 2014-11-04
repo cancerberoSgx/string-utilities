@@ -1,6 +1,4 @@
-var app = angular.module('stringUtilitiesApp');
-
-app.config(['$routeProvider',
+angular.module('stringUtilitiesApp').config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
 

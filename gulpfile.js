@@ -9,6 +9,10 @@ var concat = require('gulp-concat');
 var connect = require('gulp-connect');
 
 var JS_FILES = './src/**/*.js'; 
+var JS_FILES_IN_RIGHT_ORDER = //puaj - no browserify in this project.
+  ['./src/core/**/*.js', './src/modules/**/*.js',  './src/tools/**/*.js']; 
+
+
 var HTML_FILES = './src/**/*.html'; 
 var SCSS_FILES = './src/**/*.scss'; 
 // var DATA_FILES = './data/*.json'; 
@@ -28,7 +32,7 @@ gulp.task('sass', function() {
 });
 
 gulp.task('src', function() {
-  return gulp.src(JS_FILES)
+  return gulp.src(JS_FILES_IN_RIGHT_ORDER)
     .pipe(concat('all.js'))
     .pipe(gulp.dest('dist'))
     .pipe(connect.reload());

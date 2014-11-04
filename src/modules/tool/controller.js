@@ -1,6 +1,4 @@
-var controllers = angular.module('stringUtilitiesControllers');
-
-controllers.controller('ToolCtrl', ['$scope', '$routeParams', '$http',
+angular.module('stringUtilitiesControllers').controller('ToolCtrl', ['$scope', '$routeParams', '$http',
 
 function($scope, $routeParams, $http) 
 {
@@ -15,10 +13,15 @@ function($scope, $routeParams, $http)
 
 	toolId = tool.toolId || toolId; 
 
-	$scope.execTool = function()
+	var throttle = tool.throttle || 0;
+
+	$scope.execTool = _(function()
 	{
 		return execTool(toolId, $scope);
-	}; 
+	}).throttle(throttle); //operations can be expensive so we throtte
+
+	//dirty hack - we have a great throtle time so it is a possibility that the execTool doesn't execute on render time
+	setTimeout(function(){ $scope.$apply();}, throttle+throttle/2); 
 
 	var tool_js_path = 'src/tools/' + toolId + '.js'; 
 
@@ -43,7 +46,9 @@ var execTool = function(toolId, $scope)
 	try
 	{
 		// opts = JSON.parse($scope.options)||{};
+		/* jshint evil:true */
 		opts = eval('(' + $scope.options + ')') || {}; 
+		/* jshint evil:false */ 
 	}
 	catch(ex)
 	{
@@ -51,11 +56,17 @@ var execTool = function(toolId, $scope)
 		// throw ex;//TODO
 		opts = {};
 	}
-	var result = t.exec($scope.input, opts); 
-	// if(_(result).isObject())
-	// {
-	// 	result = JSON.stringify(result);
-	// }
+	var result = null;
+	try
+	{
+		result = t.exec($scope.input, opts); 
+	}
+	catch(ex)
+	{
+		//ignore exception since the script coun't not be loaded yet
+		result='';
+	}
+
 	return result;
 }; 
 
