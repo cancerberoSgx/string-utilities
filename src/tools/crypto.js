@@ -10,11 +10,10 @@ _(Class.prototype).extend({
 
 		var result = '';
 
-		if(opts.cipher)
+		if(opts.cipher && opts.verb && opts.passphrase)
 		{
 			var context = CryptoJS[opts.cipher];
 			result = context[opts.verb].apply(context, [input, opts.passphrase]); 
-			// console.log('Crypto cipher ' + opts.cipher + ', verb: ' + opts.verb + ', input: '+ input+ ', passphrase: '+opts.passphrase)
 			if(opts.verb==='encrypt')
 			{
 				result = result.toString(); 
@@ -23,6 +22,15 @@ _(Class.prototype).extend({
 			{
 				result = this.hex2a(result);
 			}
+		}
+		else if(opts.parse && opts.stringify)
+		{
+
+			// CryptoJS example:			
+			// var words = CryptoJS.enc.Hex.parse('48656c6c6f2c20576f726c6421');
+			// var strUtf8 = CryptoJS.enc.Utf8.stringify(words); 
+			var parsed = CryptoJS.enc[opts.parse].parse(input);
+			result = CryptoJS.enc[opts.stringify].stringify(parsed);
 		}
 		else
 		{

@@ -12,23 +12,25 @@ function($scope, $routeParams, $http)
 	$scope.longDescription = tool.longDescription || tool.description || ''; 
 
 	toolId = tool.toolId || toolId; 
+	$scope.toolId = toolId; 
 
-	var throttle = tool.throttle || 0;
-
-	$scope.execTool = _(function()
+	var execToolFn = function()
 	{
 		return execTool(toolId, $scope);
-	}).throttle(throttle); //operations can be expensive so we throtte
+	}; 
 
+	$scope.execTool = execToolFn; 
+
+	//the exec tool function
+	// var throttle = tool.throttle || 0;
+	// throttle ? _(execToolFn).throttle(throttle) : execToolFn; 
+	//$scope.execTool = throttle ? _(execToolFn).throttle(throttle) : execToolFn; 
 	//dirty hack - we have a great throtle time so it is a possibility that the execTool doesn't execute on render time
-	setTimeout(function(){ $scope.$apply();}, throttle+throttle/2); 
-
-	var tool_js_path = 'src/tools/' + toolId + '.js'; 
+	// setTimeout(function(){ $scope.$apply();}, throttle+throttle/2); 
 
 	if(tool.dependencies && tool.dependencies.length)
 	{
-		//TODO: all dependencies
-		jQuery.getScript(tool.dependencies[0]).done(function()
+		APP.loadScripts(tool.dependencies).done(function()
 		{
 			$scope.$apply() ;
 		});

@@ -59,9 +59,9 @@ _(Application.prototype).extend({
 		var promises = [];
 		_(scripts).each(function(script)
 		{
-			promises.push($.loadScript(script)); 
+			promises.push(jQuery.getScript(script)); 
 		});
-		return $.when(promises); 
+		return jQuery.when.apply(jQuery, promises); 
 	}
 
 ,	registerTool: function(id, Class)

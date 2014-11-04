@@ -180,7 +180,7 @@ var data = [
 		,	longDescription: 'The Advanced Encryption Standard (AES) is a U.S. Federal Information Processing Standard (FIPS). It was selected after a 5-year process where 15 competing designs were evaluated.. '
 		,	exampleInput: 'Message'
 		,	options: {cipher: 'AES', verb: 'encrypt', passphrase: 'mySe4ret'}
-		,	throttle: 800
+		// ,	throttle: 800
 		,	dependencies: ['lib/crypto-js/aes.js']
 		}
 	,	{
@@ -190,7 +190,7 @@ var data = [
 		,	longDescription: 'The Advanced Encryption Standard (AES) is a U.S. Federal Information Processing Standard (FIPS). It was selected after a 5-year process where 15 competing designs were evaluated.. '
 		,	exampleInput: 'U2FsdGVkX182eFdB8YZn/6VhKf0QL//nMuV05ki+dXE='
 		,	options: {cipher: 'AES', verb: 'decrypt', passphrase: 'mySe4ret'}
-		,	throttle: 800
+		// ,	throttle: 800
 		,	dependencies: ['lib/crypto-js/aes.js']
 		}
 
@@ -202,7 +202,7 @@ var data = [
 		,	longDescription: 'DES is a previously dominant algorithm for encryption, and was published as an official Federal Information Processing Standard (FIPS). DES is now considered to be insecure due to the small key size.Triple DES applies DES three times to each block to increase the key size. The algorithm is believed to be secure in this form.'
 		,	exampleInput: 'hola mundo'
 		,	options: {cipher: 'DES', verb: 'encrypt', passphrase: 'mySe4ret'}
-		,	throttle: 800
+		// ,	throttle: 800
 		,	dependencies: ['lib/crypto-js/tripledes.js']
 		}
 	,	{
@@ -212,7 +212,7 @@ var data = [
 		,	longDescription: 'DES is a previously dominant algorithm for encryption, and was published as an official Federal Information Processing Standard (FIPS). DES is now considered to be insecure due to the small key size.Triple DES applies DES three times to each block to increase the key size. The algorithm is believed to be secure in this form.'
 		,	exampleInput: 'U2FsdGVkX18rVFUvvhHXiIqGSz/GNwKzc9NcmuwkWqI='
 		,	options: {cipher: 'DES', verb: 'decrypt', passphrase: 'mySe4ret'}
-		,	throttle: 800
+		// ,	throttle: 800
 		,	dependencies: ['lib/crypto-js/tripledes.js']
 		}
 
@@ -224,7 +224,7 @@ var data = [
 		,	longDescription: 'DES is a previously dominant algorithm for encryption, and was published as an official Federal Information Processing Standard (FIPS). DES is now considered to be insecure due to the small key size.Triple DES applies DES three times to each block to increase the key size. The algorithm is believed to be secure in this form.'
 		,	exampleInput: 'nietzsche es el mdfgejor'
 		,	options: {cipher: 'TripleDES', verb: 'encrypt', passphrase: 'mySe4ret'}
-		,	throttle: 800
+		// ,	throttle: 800
 		,	dependencies: ['lib/crypto-js/tripledes.js']
 		}
 	,	{
@@ -234,7 +234,7 @@ var data = [
 		,	longDescription: 'DES is a previously dominant algorithm for encryption, and was published as an official Federal Information Processing Standard (FIPS). DES is now considered to be insecure due to the small key size.Triple DES applies DES three times to each block to increase the key size. The algorithm is believed to be secure in this form.'
 		,	exampleInput: 'U2FsdGVkX19g5P6wJ/eKsFfEKAbPzLrdrZNd8BZeVV1jr0lZyLTI4pB3CWwSAqJb'
 		,	options: {cipher: 'TripleDES', verb: 'decrypt', passphrase: 'mySe4ret'}
-		,	throttle: 800
+		// ,	throttle: 800
 		,	dependencies: ['lib/crypto-js/tripledes.js']
 		}
 
@@ -245,7 +245,7 @@ var data = [
 		,	longDescription: 'DES is a previously dominant algorithm for encryption, and was published as an official Federal Information Processing Standard (FIPS). DES is now considered to be insecure due to the small key size.Triple DES applies DES three times to each block to increase the key size. The algorithm is believed to be secure in this form.'
 		,	exampleInput: 'nietzsche es el mdfgejor'
 		,	options: {cipher: 'TripleDES', verb: 'encrypt', passphrase: 'mySe4ret'}
-		,	throttle: 800
+		// ,	throttle: 800
 		,	dependencies: ['lib/crypto-js/tripledes.js']
 		}
 	,	{
@@ -255,7 +255,7 @@ var data = [
 		,	longDescription: 'DES is a previously dominant algorithm for encryption, and was published as an official Federal Information Processing Standard (FIPS). DES is now considered to be insecure due to the small key size.Triple DES applies DES three times to each block to increase the key size. The algorithm is believed to be secure in this form.'
 		,	exampleInput: 'U2FsdGVkX19g5P6wJ/eKsFfEKAbPzLrdrZNd8BZeVV1jr0lZyLTI4pB3CWwSAqJb'
 		,	options: {cipher: 'TripleDES', verb: 'decrypt', passphrase: 'mySe4ret'}
-		,	throttle: 800
+		// ,	throttle: 800
 		,	dependencies: ['lib/crypto-js/tripledes.js']
 		}
 
@@ -266,7 +266,7 @@ var data = [
 		,	longDescription: 'Rabbit is a high-performance stream cipher and a finalist in the eSTREAM Portfolio. It is one of the four designs selected after a 3 1/2-year process where 22 designs were evaluated.'
 		,	exampleInput: 'los panchos están calientes'
 		,	options: {cipher: 'Rabbit', verb: 'encrypt', passphrase: 'mySe4ret'}
-		,	throttle: 800
+		// ,	throttle: 800
 		,	dependencies: ['lib/crypto-js/rabbit.js']
 		}
 	,	{
@@ -276,22 +276,156 @@ var data = [
 		,	longDescription: 'Rabbit is a high-performance stream cipher and a finalist in the eSTREAM Portfolio. It is one of the four designs selected after a 3 1/2-year process where 22 designs were evaluated.'
 		,	exampleInput: 'U2FsdGVkX1/rEtEaIkFz402Ld0GSwZFwp67qW/qu4t9VzGc4chUE/wnGBcY='
 		,	options: {cipher: 'Rabbit', verb: 'decrypt', passphrase: 'mySe4ret'}
-		,	throttle: 800
+		// ,	throttle: 800
 		,	dependencies: ['lib/crypto-js/rabbit.js']
 		}
 
 
 
-		//encoders
-	// 	,	{
+		//encoders & decorders
+
+		//Utf8-base64 conversion
+	,	{
+			id: "cryptoUtf82base64"
+		,	name: "utf8 string to base64"				
+		,	toolId: 'crypto'
+		,	longDescription: ''
+		,	exampleInput: '¡los pollluelos están naciendo!'
+		,	options: {parse: 'Utf8', stringify: 'Base64'}
+		,	dependencies: ['lib/crypto-js/core-min.js', 'lib/crypto-js/enc-utf16-min.js', 'lib/crypto-js/enc-base64-min.js']
+		}
+		,	{
+			id: "cryptobase642Utf8"
+		,	name: "base64 to utf8 string"				
+		,	toolId: 'crypto'
+		,	longDescription: ''
+		,	exampleInput: 'wqFsb3MgcG9sbGx1ZWxvcyBlc3TDoW4gbmFjaWVuZG8h'
+		,	options: {parse: 'Base64', stringify: 'Utf8'}
+		,	dependencies: ['lib/crypto-js/core-min.js', 'lib/crypto-js/enc-utf16-min.js', 'lib/crypto-js/enc-base64-min.js']
+		}
+
+
+		//Utf16-base64 conversion
+	,	{
+			id: "cryptoUtf162base64"
+		,	name: "utf16 string to base64"				
+		,	toolId: 'crypto'
+		,	longDescription: ''
+		,	exampleInput: '¡los pollluelos están naciendo!'
+		,	options: {parse: 'Utf16', stringify: 'Base64'}
+		,	dependencies: ['lib/crypto-js/core-min.js', 'lib/crypto-js/enc-utf16-min.js', 'lib/crypto-js/enc-base64-min.js']
+		}
+		,	{
+			id: "cryptobase642Utf16"
+		,	name: "base64 to utf16 string"				
+		,	toolId: 'crypto'
+		,	longDescription: ''
+		,	exampleInput: 'AKEAbABvAHMAIABwAG8AbABsAGwAdQBlAGwAbwBzACAAZQBzAHQA4QBuACAAbgBhAGMAaQBlAG4AZABvACE='
+		,	options: {parse: 'Base64', stringify: 'Utf16'}
+		,	dependencies: ['lib/crypto-js/core-min.js', 'lib/crypto-js/enc-utf16-min.js', 'lib/crypto-js/enc-base64-min.js']
+		}
+
+		//Utf8-Hex conversion
+		,	{
+			id: "cryptoUtf82Hex"
+		,	name: "utf8 string to Hex"				
+		,	toolId: 'crypto'
+		,	longDescription: ''
+		,	exampleInput: 'pequeños mundos'
+		,	options: {parse: 'Utf8', stringify: 'Hex'}
+		,	dependencies: ['lib/crypto-js/core-min.js', 'lib/crypto-js/enc-utf16-min.js', 'lib/crypto-js/enc-base64-min.js']
+		}
+		,	{
+			id: "cryptoHex2Utf8"
+		,	name: "Hex to utf8 string"				
+		,	toolId: 'crypto'
+		,	longDescription: ''
+		,	exampleInput: '7065717565c3b16f73206d756e646f73'
+		,	options: {parse: 'Hex', stringify: 'Utf8'}
+		,	dependencies: ['lib/crypto-js/core-min.js', 'lib/crypto-js/enc-utf16-min.js', 'lib/crypto-js/enc-base64-min.js']
+		}
+
+
+		//Latin1-Hex conversion
+	,	{
+			id: "cryptoLatin12Hex"
+		,	name: "Latin1 string to Hex"				
+		,	toolId: 'crypto'
+		,	longDescription: ''
+		,	exampleInput: 'pequeños mundos'
+		,	options: {parse: 'Latin1', stringify: 'Hex'}
+		,	dependencies: ['lib/crypto-js/core-min.js', 'lib/crypto-js/enc-utf16-min.js', 'lib/crypto-js/enc-base64-min.js']
+		}
+		,	{
+			id: "cryptoHex2Latin1"
+		,	name: "Hex to Latin1 string"				
+		,	toolId: 'crypto'
+		,	longDescription: ''
+		,	exampleInput: '7065717565f16f73206d756e646f73'
+		,	options: {parse: 'Hex', stringify: 'Latin1'}
+		,	dependencies: ['lib/crypto-js/core-min.js', 'lib/crypto-js/enc-utf16-min.js', 'lib/crypto-js/enc-base64-min.js']
+		}
+
+
+		//Base64-Hex conversion
+	,	{
+			id: "cryptoBase642Hex"
+		,	name: "Base64 string to Hex"				
+		,	toolId: 'crypto'
+		,	longDescription: ''
+		,	exampleInput: 'wqFsb3MgcG9sbGx1ZWxvcyBlc3TDoW4gbmFjaWVuZG8h'
+		,	options: {parse: 'Base64', stringify: 'Hex'}
+		,	dependencies: ['lib/crypto-js/core-min.js', 'lib/crypto-js/enc-utf16-min.js', 'lib/crypto-js/enc-base64-min.js']
+		}
+		,	{
+			id: "cryptoHex2Base64"
+		,	name: "Hex to Base64 string"				
+		,	toolId: 'crypto'
+		,	longDescription: ''
+		,	exampleInput: 'c2a16c6f7320706f6c6c6c75656c6f7320657374c3a16e206e616369656e646f21'
+		,	options: {parse: 'Hex', stringify: 'Base64'}
+		,	dependencies: ['lib/crypto-js/core-min.js', 'lib/crypto-js/enc-utf16-min.js', 'lib/crypto-js/enc-base64-min.js']
+		}
+
+		//Utf16LE-Hex conversion
+	,	{
+			id: "cryptoUtf16LE2base64"
+		,	name: "Utf16LE string to base64"				
+		,	toolId: 'crypto'
+		,	longDescription: ''
+		,	exampleInput: '¡los pollluelos están naciendo!'
+		,	options: {parse: 'Utf16LE', stringify: 'Base64'}
+		,	dependencies: ['lib/crypto-js/core-min.js', 'lib/crypto-js/enc-utf16-min.js', 'lib/crypto-js/enc-base64-min.js']
+		}
+		,	{
+			id: "cryptobase642Utf16LE"
+		,	name: "base64 to Utf16LE string"				
+		,	toolId: 'crypto'
+		,	longDescription: ''
+		,	exampleInput: 'oQBsAG8AcwAgAHAAbwBsAGwAbAB1AGUAbABvAHMAIABlAHMAdADhAG4AIABuAGEAYwBpAGUAbgBkAG8AIQA='
+		,	options: {parse: 'Base64', stringify: 'Utf16LE'}
+		,	dependencies: ['lib/crypto-js/core-min.js', 'lib/crypto-js/enc-utf16-min.js', 'lib/crypto-js/enc-base64-min.js']
+		}
+
+	// ,	{
 	// 		id: "cryptoBase64Stringify"
 	// 	,	name: "Base64 Stringify"				
 	// 	,	toolId: 'crypto'
 	// 	,	longDescription: ''
 	// 	,	exampleInput: 'los panchos están calientes'
-	// 	,	options: {encoder: 'Base64', verb: 'stringify'}
-	// 	,	dependencies: ['lib/crypto-js/rabbit.js']
+	// 	,	options: {parse: 'Utf8', stringify: 'Hex'}
+	// 	,	dependencies: ['lib/crypto-js/core-min.js', 'lib/crypto-js/enc-utf16-min.js', 'lib/crypto-js/enc-base64-min.js']
 	// 	}
+		// ,	{
+		// 	id: "cryptoBase64Stringify"
+		// ,	name: "Base64 Stringify"				
+		// ,	toolId: 'crypto'
+		// ,	longDescription: ''
+		// ,	exampleInput: 'los panchos están calientes'
+		// ,	options: {encoder: 'Base64', verb: 'parse'}
+		// ,	dependencies: ['lib/crypto-js/core-min.js', 'lib/crypto-js/enc-utf16-min.js', 'lib/crypto-js/enc-base64-min.js']
+		// }
+
 	// ,	{
 	// 		id: "cryptoRabbitDecrypt"
 	// 	,	name: "Rabbit Decrypt"	
