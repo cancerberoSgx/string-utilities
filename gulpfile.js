@@ -9,13 +9,12 @@ var concat = require('gulp-concat');
 var connect = require('gulp-connect');
 
 var JS_FILES = './src/**/*.js'; 
-var JS_FILES_IN_RIGHT_ORDER = //puaj - no browserify in this project.
+var JS_FILES_IN_RIGHT_ORDER = //puaj - no browserify in this project - we need to include core/app before the others
   ['./src/core/**/*.js', './src/modules/**/*.js',  './src/tools/**/*.js']; 
 
 
 var HTML_FILES = './src/**/*.html'; 
 var SCSS_FILES = './src/**/*.scss'; 
-// var DATA_FILES = './data/*.json'; 
 
 gulp.task('lint', function() {
     return gulp.src([JS_FILES].concat(['!src/tools/lib/**/*']))
@@ -42,10 +41,6 @@ gulp.task('html', function() {
   return gulp.src(HTML_FILES)
     .pipe(connect.reload());
 });
-// gulp.task('data', function() {
-//   return gulp.src(DATA_FILES)
-//     .pipe(connect.reload());
-// });
 
 
 // Watch Files For Changes. 
@@ -55,7 +50,6 @@ gulp.task('watch', function() {
     gulp.watch(JS_FILES, ['lint', 'src']);
     gulp.watch(HTML_FILES, ['html']);
     gulp.watch(SCSS_FILES, ['sass']);
-    // gulp.watch(DATA_FILES, ['data']);
 });
 
 gulp.task('connect', function() {

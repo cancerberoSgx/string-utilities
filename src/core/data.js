@@ -30,7 +30,7 @@ var data = [
 , 
 {
 	id: "string"
-,	name:"String misc"
+,	name:"stringjs"
 ,	description: "miscelaneus string operations based on stringjs.com"
 ,	tools: [
 		{
@@ -126,6 +126,10 @@ var data = [
 		,	options: {cmd: 'SHA1'}
 		,	dependencies: ['lib/crypto-js/sha1.js']
 		}
+
+
+
+
 	,	{
 			id: "cryptoSHA2"
 		,	name: "SHA2"				
@@ -172,8 +176,18 @@ var data = [
 		,	dependencies: ['lib/crypto-js/ripemd160.js']
 		}
 
-		//ciphers
-	,	{
+
+
+	]
+	}
+
+
+,	{
+	id: "cryptojsCipher"
+,	name:"cryptojsCipher"		
+,	description: "cryptojsCipher"
+,	tools: [
+		{
 			id: "cryptoAESEncrypt"
 		,	name: "AES Encrypt"				
 		,	toolId: 'crypto'
@@ -279,13 +293,24 @@ var data = [
 		// ,	throttle: 800
 		,	dependencies: ['lib/crypto-js/rabbit.js']
 		}
+	]
+	}
+
+
+
+
+,	{
+	id: "cryptojsEncoding"
+,	name:"cryptojsEncoding"		
+,	description: "cryptojsEncoding"
+,	tools: [
 
 
 
 		//encoders & decorders
 
 		//Utf8-base64 conversion
-	,	{
+		{
 			id: "cryptoUtf82base64"
 		,	name: "utf8 string to base64"				
 		,	toolId: 'crypto'
@@ -406,50 +431,32 @@ var data = [
 		,	options: {parse: 'Base64', stringify: 'Utf16LE'}
 		,	dependencies: ['lib/crypto-js/core-min.js', 'lib/crypto-js/enc-utf16-min.js', 'lib/crypto-js/enc-base64-min.js']
 		}
-
-	// ,	{
-	// 		id: "cryptoBase64Stringify"
-	// 	,	name: "Base64 Stringify"				
-	// 	,	toolId: 'crypto'
-	// 	,	longDescription: ''
-	// 	,	exampleInput: 'los panchos están calientes'
-	// 	,	options: {parse: 'Utf8', stringify: 'Hex'}
-	// 	,	dependencies: ['lib/crypto-js/core-min.js', 'lib/crypto-js/enc-utf16-min.js', 'lib/crypto-js/enc-base64-min.js']
-	// 	}
-		// ,	{
-		// 	id: "cryptoBase64Stringify"
-		// ,	name: "Base64 Stringify"				
-		// ,	toolId: 'crypto'
-		// ,	longDescription: ''
-		// ,	exampleInput: 'los panchos están calientes'
-		// ,	options: {encoder: 'Base64', verb: 'parse'}
-		// ,	dependencies: ['lib/crypto-js/core-min.js', 'lib/crypto-js/enc-utf16-min.js', 'lib/crypto-js/enc-base64-min.js']
-		// }
-
-	// ,	{
-	// 		id: "cryptoRabbitDecrypt"
-	// 	,	name: "Rabbit Decrypt"	
-	// 	,	toolId: 'crypto'
-	// 	,	longDescription: 'Rabbit is a high-performance stream cipher and a finalist in the eSTREAM Portfolio. It is one of the four designs selected after a 3 1/2-year process where 22 designs were evaluated.'
-	// 	,	exampleInput: 'U2FsdGVkX1/rEtEaIkFz402Ld0GSwZFwp67qW/qu4t9VzGc4chUE/wnGBcY='
-	// 	,	options: {cipher: 'Rabbit', verb: 'decrypt', passphrase: 'mySe4ret'}
-	// 	,	dependencies: ['lib/crypto-js/rabbit.js']
-	// 	}
 	]
 	}
+
+
+
+
+
+
+,	{
+	id: "jsindentator"
+,	name:"jsindentator"		
+,	description: "jsindentator"
+,	tools: [
+		{
+			id: "jsindentatorStyleOne"
+		,	name: "clean style one 111"				
+		,	toolId: 'jsindentator'
+		,	longDescription: ''
+		,	exampleInput: 'blabla'
+		,	options: {parse: 'Base64', stringify: 'Utf16LE'}
+		,	dependencies: ['lib/js-indentator/js-indentator-bundle.js']
+		}
+	]
+	}
+
 ]; 
 
 APP = (typeof(APP) === 'undefined') ? {} : APP;
 APP.data = data;
-
-// APP.getAppCategoriesData = function()
-// {
-// 	if(typeof(APP.appCategoriesData)==='undefined')
-// 	{
-
-		
-		
-// 		APP.appCategoriesData = data; 
-// 	}
-// 	return APP.appCategoriesData; 
-// }; 

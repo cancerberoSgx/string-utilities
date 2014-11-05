@@ -16,7 +16,7 @@ function($scope, $routeParams, $http)
 
 	var execToolFn = function()
 	{
-		return execTool(toolId, $scope);
+		return APP.execTool(toolId, $scope);
 	}; 
 
 	$scope.execTool = execToolFn; 
@@ -38,38 +38,5 @@ function($scope, $routeParams, $http)
 }
 
 ]);
-
-
-var execTool = function(toolId, $scope)
-{
-	var Tool = APP.getTool(toolId);
-	var t = new Tool();
-	var opts = {}; 
-	try
-	{
-		// opts = JSON.parse($scope.options)||{};
-		/* jshint evil:true */
-		opts = eval('(' + $scope.options + ')') || {}; 
-		/* jshint evil:false */ 
-	}
-	catch(ex)
-	{
-		//ignore exception since the user may be writing
-		// throw ex;//TODO
-		opts = {};
-	}
-	var result = null;
-	try
-	{
-		result = t.exec($scope.input, opts); 
-	}
-	catch(ex)
-	{
-		//ignore exception since the script coun't not be loaded yet
-		result='';
-	}
-
-	return result;
-}; 
 
 

@@ -1,7 +1,7 @@
 {
-  "name": "gulp-angular-bower",
+  "name": "string-utilities",
   "version": "0.1.0",
-  "description": "ulp-angular-bower example",
+  "description": "html application with lots of string utilities to be used 100% online",
   "author": "Sebastián Gurin",
   "dependencies": {
   },
