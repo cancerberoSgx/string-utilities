@@ -3,14 +3,25 @@ _(Class.prototype).extend({
 	exec: function(input, opts)
 	{
 		jsindentator.setStyle(jsindentator.styles.style2);
-		var indentedCode = jsindentator.main(input, opts); 
+		var indentedCode = '';
+
+		try
+		{
+			indentedCode = jsindentator.main(input, opts); 
+		}
+		catch(ex)
+		{
+			// debugger;
+		}
+
 		
 		if(indentedCode instanceof Error) 
 		{			
 		 	//TODO better error handl
 			console.err('ERROR: The passed javascript coulnd\'t be parsed!, reason: '+result);
 			// return;
-			throw indentedCode;
+			return {error: indentedCode.message || indentedCode.description, errorEx: indentedCode}; 
+			// throw indentedCode;
 		}
 
 		return indentedCode;

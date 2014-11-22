@@ -79,6 +79,7 @@ _(Application.prototype).extend({
 		return APP.tools[id]; 
 	}
 
+	//@method execTool @param toolId @param toolInput @returns evaluated tool. Will be a string with the result if everything is allright or an object {error:'some msg'} in case of a tool error. 
 ,	execTool: function(toolId, toolInput)
 	{
 		var Tool = APP.getTool(toolId);
@@ -100,7 +101,9 @@ _(Application.prototype).extend({
 			result = t.exec(toolInput.input, opts); 
 		}
 		catch(ex) //ignore exception since the script coun't not be loaded yet
-		{			
+		{
+			// throw ex;
+			// console.log(ex); 
 			result = '';
 		}
 

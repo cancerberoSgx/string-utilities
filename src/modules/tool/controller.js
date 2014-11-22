@@ -16,7 +16,13 @@ function($scope, $routeParams, $http)
 
 	var execToolFn = function()
 	{
-		return APP.execTool(toolId, $scope);
+		var toolResult = APP.execTool(toolId, $scope);
+		if(toolResult && toolResult.error)
+		{
+			$scope.toolError = toolResult.error; 
+			return toolResult;
+		}
+		return toolResult;
 	}; 
 
 	$scope.execTool = execToolFn; 

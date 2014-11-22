@@ -6,4 +6,5 @@ angular.module('stringUtilitiesApp').config(['$routeProvider',
         templateUrl: 'src/modules/categories/template.html',
         controller: 'CategoriesCtrl'
       });
+      
   }]);

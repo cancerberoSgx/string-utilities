@@ -449,9 +449,29 @@ var data = [
 		,	name: "clean style one 111"				
 		,	toolId: 'jsindentator'
 		,	longDescription: ''
-		,	exampleInput: 'blabla'
+		,	exampleInput: 'var a = {a: 1, b: 2, c: [{a:[1,2,3],d: {g:2}}]}'
 		,	options: {parse: 'Base64', stringify: 'Utf16LE'}
 		,	dependencies: ['lib/js-indentator/js-indentator-bundle.js']
+		}
+	]
+	}
+
+
+
+
+
+,	{
+	id: "programmingUtils"
+,	name:"Programming Utilities"		
+,	description: "Programming Utilities"
+,	tools: [
+		{
+			id: "toString"
+		,	name: "escapes given string to form a valid string for most programming languages"				
+		,	toolId: 'programmingToString'
+		,	longDescription: ''
+		,	exampleInput: '<div>\n\t<%_(items).each(function(item){%>\n\t\t<%= \'Product \' + item.name%>\n\t<%})%>\n</div>'
+		,	options: {concat: '+', stringChar: '\''}
 		}
 	]
 	}
