@@ -446,12 +446,32 @@ var data = [
 ,	tools: [
 		{
 			id: "jsindentatorStyleOne"
-		,	name: "clean style one 111"				
+		,	name: "clean style one"				
 		,	toolId: 'jsindentator'
-		,	longDescription: ''
-		,	exampleInput: 'var a = {a: 1, b: 2, c: [{a:[1,2,3],d: {g:2}}]}'
-		,	options: {parse: 'Base64', stringify: 'Utf16LE'}
-		,	dependencies: ['lib/js-indentator/js-indentator-bundle.js']
+		,	longDescription: 'a normal - very common indentation style'
+		,	exampleInput: 'var a = {a: 1, \n\t\t\t c: [\t\t{a:[1,2,3],d: {g:2, y: {color: "red", magic: /g+ift/gi}}\n\t}]}'
+		,	options: {style: 'style2'}
+		,	dependencies: ['lib/esprima/esprima.js', 'lib/js-indentator/js-indentator-bundle.js']
+		}
+	,	
+		{
+			id: "jsindentatorStyleChapuzero"
+		,	name: "clean comma first"				
+		,	toolId: 'jsindentator'
+		,	longDescription: 'comma first, spaced indentation style'
+		,	exampleInput: 'var a = {a: 1, \n\t\t\t c: [\t\t{a:[1,2,3],d: {g:2, y: {color: "red", magic: /g+ift/gi}}\n\t}]}'
+		,	options:{style: 'style1'}
+		,	dependencies: ['lib/esprima/esprima.js', 'lib/js-indentator/js-indentator-bundle.js']
+		}
+	,	
+		{
+			id: "jsindentatorStyleMinify"
+		,	name: "minify"				
+		,	toolId: 'jsindentator'
+		,	longDescription: 'simple minification tool'
+		,	exampleInput: 'var a = {a: 1, \n\t\t\t c: [\t\t{a:[1,2,3],d: {g:2, y: {color: "red", magic: /g+ift/gi}}\n\t}]}'
+		,	options:{style: 'clean'}
+		,	dependencies: ['lib/esprima/esprima.js', 'lib/js-indentator/js-indentator-bundle.js']
 		}
 	]
 	}

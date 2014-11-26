@@ -2,7 +2,7 @@ var Class = function(){};
 _(Class.prototype).extend({
 	exec: function(input, opts)
 	{
-		jsindentator.setStyle(jsindentator.styles.style2);
+		jsindentator.setStyle(jsindentator.styles[opts.style]);
 		var indentedCode = '';
 
 		try
