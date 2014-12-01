@@ -617,6 +617,25 @@ var data = [
 	]
 	}
 
+
+
+
+,	{
+	id: "phoneticutils"
+,	name:"Phonetics Utilities"		
+,	description: "Phonetics Utilities. A phonetic algorithm is an algorithm for indexing of words by their pronunciation. See http://en.wikipedia.org/wiki/Phonetic_algorithm"
+,	tools: [
+		{
+			id: "DoubleMetaphone"
+		,	name: "Double Metaphone"				
+		,	toolId: 'phonetics'
+		,	longDescription: ''
+		,	exampleInput: 'This is just a sentence of very simple words. When several words are input then the resulting computations will take longer time.'
+		,	options: {}
+		,	dependencies: ['bower_components/doublemetaphone/doublemetaphone.js']
+		}
+	]
+	}
 ]; 
 
 APP = (typeof(APP) === 'undefined') ? {} : APP;
@@ -823,6 +842,28 @@ APP.registerTool('jsindentator', Class);
 // return;
 // }
 // jQuery('#output3').html(indentedCode);
+var Class = function(){}; 
+_(Class.prototype).extend({
+	exec: function(input, opts)
+	{
+		var encoder = new DoubleMetaphone();
+		var input_arr = input.split(/\s+/gi); 
+		var output = []; 
+		_(input_arr).each(function(s)
+		{
+			if(s.match(/[\w']+/))
+			{				
+				output.push(encoder.doubleMetaphone(s).primary);
+			}
+			else
+			{
+				output.push(s);
+			}
+		});
+		return output.join(' '); 
+	}
+}); 
+APP.registerTool('phonetics', Class); 
 var Class = function(){}; 
 _(Class.prototype).extend({
 	exec: function(input, opts)
