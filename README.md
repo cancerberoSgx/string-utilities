@@ -1,6 +1,6 @@
 [String Utilities](http://cancerberosgx.github.io/string-utilities)
 
-#What is this
+# What is this
 This is an html application that contains string operations related utilities useful for programming most of all. 
 
 # Introduction
