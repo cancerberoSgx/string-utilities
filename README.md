@@ -1,11 +1,10 @@
 [String Utilities](http://cancerberosgx.github.io/string-utilities)
 
 # What is this
-This is an html application that contains string operations related utilities useful for programming most of all. 
+HTML application that contains string operations related utilities, in general, useful to developers.
 
 # Introduction
-
-In the beggining this project is a pet for learning some technologies new, mainliy angular. It is an html5 application that exposes utilities for processing strings. 
+At the beggining this project was a pet for learning some technologies new, concretely angular. But now I think it's really useful when you need to escape, quote, parse, indent, encrypt, encode, etc strings online. 
 
 # Install and run
 
